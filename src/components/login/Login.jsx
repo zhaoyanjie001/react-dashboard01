@@ -1,6 +1,7 @@
-import React, { Component, PropTypes }  from "react";
+import React, { Component, PropTypes } from "react";
 import Field from "./Field";
 import Button from "./Button";
+import Tab from "../tab/Tab";
 import { Message } from "@arco-design/web-react";
 // import { Switch, Route, HashRouter, Redirect, Link } from 'react-router-dom';
 import MainLayout from '../../layout/MainLayout';
@@ -12,16 +13,18 @@ export default class App extends Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
-      count : 0,
+      count: 0,
+      name1: "tab1",
+      name2: "tab2",
+      name3: "tab3",
     };
-
   }
-  
-  handleClick(e){
+
+  handleClick(e) {
     e.preventDefault();
-    this.setState({ 
-      count: this.state.count + 1, 
-    }); 
+    this.setState({
+      count: this.state.count + 1,
+    });
   }
   render() {
     return (
@@ -39,7 +42,6 @@ export default class App extends Component {
                 this.username.current.state.value,
                 this.password.current.state.value
               );
-
               if (
                 this.username.current.state.value === "admin" &&
                 this.password.current.state.value === "123"
@@ -64,9 +66,13 @@ export default class App extends Component {
           />
         </div>
         <div className="ui-tabs">
-          <p>{this.state.count}</p> 
-          <a href="#" onClick={this.handleClick}>更新</a> 
+          <p>{this.state.count}</p>
+          <a href="#" onClick={this.handleClick}>更新</a>
         </div>
+        <br/>
+        <Tab name={this.state.name1}></Tab>
+        <Tab name={this.state.name2}></Tab>
+        <Tab name={this.state.name3}></Tab>
       </div>
     );
   }
