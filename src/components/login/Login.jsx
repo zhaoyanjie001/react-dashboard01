@@ -13,13 +13,13 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <h2>登录页面</h2>
-        <Field label="用户名" type="text" ref={this.username}></Field>
-        <Field label="密码" type="password" ref={this.password}></Field>
+        <h2>ログイン</h2>
+        <Field label="ユーザー" type="text" ref={this.username}></Field>
+        <Field label="パスワード" type="password" ref={this.password}></Field>
         <div style={{ display: "flex", marginLeft: "110px" }}>
           <Button
             type="button"
-            value="登录"
+            value="登録"
             event={() => {
               console.log(
                 this.username.current,
@@ -31,7 +31,7 @@ export default class App extends Component {
                 this.username.current.state.value === "admin" &&
                 this.password.current.state.value === "123"
               ) {
-                Message.success("登陆成功");
+                Message.success("登録成功");
                 // 跳转到首页
                 // <Route path="/home" element={<MainLayout />}></Route>
                 // <Route path="list" element={<List />} />
