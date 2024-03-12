@@ -17,17 +17,17 @@ import TabNav from './TabNav';
 import TabContent from './TabContent';
 
 class Tabs extends Component {
-  propTypes = {
-    className: PropTypes.string,
-    classPrefix: PropTypes.string,
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node,
-    ]),
-    defaultActiveIndex: PropTypes.number,
-    activeIndex: PropTypes.number,
-    onChange: PropTypes.func,
-  };
+  // propTypes = {
+  //   className: PropTypes.string,
+  //   classPrefix: PropTypes.string,
+  //   children: PropTypes.oneOfType([
+  //     PropTypes.arrayOf(PropTypes.node),
+  //     PropTypes.node,
+  //   ]),
+  //   defaultActiveIndex: PropTypes.number,
+  //   activeIndex: PropTypes.number,
+  //   onChange: PropTypes.func,
+  // };
 
   defaultProps = {
     classPrefix: 'tabs',
@@ -64,7 +64,6 @@ class Tabs extends Component {
 
   handleTabClick(activeIndex) {
     const prevIndex = this.state.activeIndex;
-
     if (this.state.activeIndex !== activeIndex &&
         'defaultActiveIndex' in this.props) {
       this.setState({
@@ -78,7 +77,6 @@ class Tabs extends Component {
 
   renderTabNav() {
     const { classPrefix, children } = this.props;
-
     return (
       <TabNav
         key="tabBar"
@@ -92,7 +90,6 @@ class Tabs extends Component {
 
   renderTabContent() {
     const { classPrefix, children } = this.props;
-
     return (
       <TabContent
         key="tabcontent"
@@ -106,7 +103,6 @@ class Tabs extends Component {
   render() {
     const { className } = this.props;
     const cx = classnames(className, 'ui-tabs');
-
     return (
       <div className={cx}>
         {this.renderTabNav()}

@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 class TabContent extends Component {
-  propTypes = {
-    classPrefix: React.PropTypes.string,
-    panels: PropTypes.node,
-    activeIndex: PropTypes.number,
-  };
+  // propTypes = {
+  //   classPrefix: React.PropTypes.string,
+  //   panels: PropTypes.node,
+  //   activeIndex: PropTypes.number,
+  // };
 
   getTabPanes() {
     const { classPrefix, activeIndex, panels } = this.props;
@@ -35,7 +35,7 @@ class TabContent extends Component {
 
     return (
       <div className={classes}>
-        {/* {this.getTabPanes()} */}
+        {this.getTabPanes()}
       </div>
     );
   }
