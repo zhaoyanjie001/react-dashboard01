@@ -1,4 +1,4 @@
-import React, { Component} from "react";
+import React, { Component, PropTypes }  from "react";
 import Field from "./Field";
 import Button from "./Button";
 import { Message } from "@arco-design/web-react";
@@ -8,8 +8,21 @@ import List from '../list/List';
 export default class App extends Component {
   username = React.createRef();
   password = React.createRef();
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      count : 0,
+    };
 
-
+  }
+  
+  handleClick(e){
+    e.preventDefault();
+    this.setState({ 
+      count: this.state.count + 1, 
+    }); 
+  }
   render() {
     return (
       <div>
@@ -43,12 +56,16 @@ export default class App extends Component {
           />
           <Button
             type="button"
-            value="重置"
+            value="クリア"
             event={() => {
               this.username.current.clear();
               this.password.current.clear();
             }}
           />
+        </div>
+        <div className="ui-tabs">
+          <p>{this.state.count}</p> 
+          <a href="#" onClick={this.handleClick}>更新</a> 
         </div>
       </div>
     );
