@@ -1,4 +1,4 @@
-import React, { Component, PropTypes, cloneElement } from "react";
+import React, { Component, } from "react";
 import Field from "./Field";
 import Button from "./Button";
 import Tab from "../tab/Tab";
@@ -78,23 +78,23 @@ export default class App extends Component {
         </div>
         <br/>
         <br/>
-        <Tab name={this.state.name1}></Tab> <Tab name={this.state.name2}></Tab> <Tab name={this.state.name3}></Tab>
-
+        {/* <Tab name={this.state.name1}></Tab> <Tab name={this.state.name2}></Tab> <Tab name={this.state.name3}></Tab>
+ */}
 
 
         <div>
         <div className="operator">
           <span>切换 Tab：</span>
           <select value={this.state.activeIndex} onChange={this.handleChange}>
-            <option value="0">Tab 1</option>
-            <option value="1">Tab 2</option>
-            <option value="2">Tab 3</option>
+            <option value="0">Tab 11</option>
+            <option value="1">Tab 22</option>
+            <option value="2">Tab 33</option>
           </select>
         </div>
         <Tabs defaultActiveIndex={this.state.activeIndex} className="tabs-bar">
-          {/* <TabPane order="0" tab={'Tab 1'}>第一个 Tab 里的内容</TabPane>
+          <TabPane order="0" tab={'Tab 1'}>第一个 Tab 里的内容</TabPane>
           <TabPane order="1" tab={'Tab 2'}>第二个 Tab 里的内容</TabPane>
-          <TabPane order="2" tab={'Tab 3'}>第三个 Tab 里的内容</TabPane> */}
+          <TabPane order="2" tab={'Tab 3'}>第三个 Tab 里的内容</TabPane> 
         </Tabs>
       </div>
 

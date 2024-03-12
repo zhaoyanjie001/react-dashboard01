@@ -1,15 +1,4 @@
-// import React, { Component, PropTypes } from 'react';
-// import classnames from 'classnames';
-// class Tabs extends Component {
-//     constructor(props) {
-//         super(props);
-//     } 
-    
-//     render() {
-//         return <div className="ui-tabs">{this.props.name}</div>;
-//     }
-// };
-// export default Tabs;
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -17,17 +6,17 @@ import TabNav from './TabNav';
 import TabContent from './TabContent';
 
 class Tabs extends Component {
-  // propTypes = {
-  //   className: PropTypes.string,
-  //   classPrefix: PropTypes.string,
-  //   children: PropTypes.oneOfType([
-  //     PropTypes.arrayOf(PropTypes.node),
-  //     PropTypes.node,
-  //   ]),
-  //   defaultActiveIndex: PropTypes.number,
-  //   activeIndex: PropTypes.number,
-  //   onChange: PropTypes.func,
-  // };
+  propTypes = {
+    className: PropTypes.string,
+    classPrefix: PropTypes.string,
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node,
+    ]),
+    defaultActiveIndex: PropTypes.number,
+    activeIndex: PropTypes.number,
+    onChange: PropTypes.func,
+  };
 
   defaultProps = {
     classPrefix: 'tabs',
