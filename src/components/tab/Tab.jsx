@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-class Tabs extends Component {
+import classnames from 'classnames';
+class Tab extends Component {
     constructor(props) {
         super(props);
     } 
@@ -8,4 +9,4 @@ class Tabs extends Component {
         return <div className="ui-tabs">{this.props.name}</div>;
     }
 };
-export default Tabs;
+export default Tab;

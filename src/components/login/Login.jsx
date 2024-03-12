@@ -1,11 +1,15 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component, PropTypes, cloneElement } from "react";
 import Field from "./Field";
 import Button from "./Button";
 import Tab from "../tab/Tab";
-import { Message } from "@arco-design/web-react";
+import Tabs from "../tab/Tabs";
+import TabPane from '../tab/TabPane';
 // import { Switch, Route, HashRouter, Redirect, Link } from 'react-router-dom';
-import MainLayout from '../../layout/MainLayout';
-import List from '../list/List';
+// import MainLayout from '../../layout/MainLayout';
+// import List from '../list/List';
+// import ReactDOM from 'react-dom';
+// import TabPane from '../tab/TabContent';
+
 export default class App extends Component {
   username = React.createRef();
   password = React.createRef();
@@ -17,13 +21,16 @@ export default class App extends Component {
       name1: "tab1",
       name2: "tab2",
       name3: "tab3",
+      activeIndex: 0,
     };
+    
   }
 
   handleClick(e) {
     e.preventDefault();
     this.setState({
       count: this.state.count + 1,
+      activeIndex: parseInt(e.target.value, 10),
     });
   }
   render() {
@@ -46,7 +53,7 @@ export default class App extends Component {
                 this.username.current.state.value === "admin" &&
                 this.password.current.state.value === "123"
               ) {
-                Message.success("登録成功");
+                console.log("登録成功");
                 // 跳转到首页
                 // <Route path="/home" element={<MainLayout />}></Route>
                 // <Route path="list" element={<List />} />
@@ -70,10 +77,29 @@ export default class App extends Component {
           <a href="#" onClick={this.handleClick}>更新</a>
         </div>
         <br/>
-        <Tab name={this.state.name1}></Tab>
-        <Tab name={this.state.name2}></Tab>
-        <Tab name={this.state.name3}></Tab>
+        <br/>
+        <Tab name={this.state.name1}></Tab> <Tab name={this.state.name2}></Tab> <Tab name={this.state.name3}></Tab>
+
+
+
+        <div>
+        <div className="operator">
+          <span>切换 Tab：</span>
+          <select value={this.state.activeIndex} onChange={this.handleChange}>
+            <option value="0">Tab 1</option>
+            <option value="1">Tab 2</option>
+            <option value="2">Tab 3</option>
+          </select>
+        </div>
+        <Tabs defaultActiveIndex={this.state.activeIndex} className="tabs-bar">
+          <TabPane order="0" tab={'Tab 1'}>第一个 Tab 里的内容</TabPane>
+          <TabPane order="1" tab={'Tab 2'}>第二个 Tab 里的内容</TabPane>
+          <TabPane order="2" tab={'Tab 3'}>第三个 Tab 里的内容</TabPane>
+        </Tabs>
       </div>
+
+      </div>
+
     );
   }
 }
