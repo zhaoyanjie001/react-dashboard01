@@ -4,23 +4,23 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import TabNav from './TabNav';
 import TabContent from './TabContent';
-
+import styles from "../css/style.scss";
 class Tabs extends Component {
-  propTypes = {
-    className: PropTypes.string,
-    classPrefix: PropTypes.string,
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node,
-    ]),
-    defaultActiveIndex: PropTypes.number,
-    activeIndex: PropTypes.number,
-    onChange: PropTypes.func,
-  };
+  // static propTypes = {
+  //   className: PropTypes.string,
+  //   classPrefix: PropTypes.string,
+  //   children: PropTypes.oneOfType([
+  //     PropTypes.arrayOf(PropTypes.node),
+  //     PropTypes.node,
+  //   ]),
+  //   defaultActiveIndex: PropTypes.number,
+  //   activeIndex: PropTypes.number,
+  //   onChange: PropTypes.func,
+  // };
 
-  defaultProps = {
+  static defaultProps = {
     classPrefix: 'tabs',
-    onChange: () => {},
+    onChange: () => {console.log("llll");},
   };
 
   constructor(props) {
@@ -31,6 +31,9 @@ class Tabs extends Component {
     this.handleTabClick = this.handleTabClick.bind(this);
 
     let activeIndex;
+    console.log("this.props.defaultActiveIndex="+this.props.defaultActiveIndex);
+    console.log("this.props.activeIndex="+this.props.activeIndex);
+
     if ('activeIndex' in currProps) {
       activeIndex = currProps.activeIndex;
     } else if ('defaultActiveIndex' in currProps) {
@@ -42,9 +45,13 @@ class Tabs extends Component {
       prevIndex: activeIndex,
     };
   }
+  
 
   componentWillReceiveProps(nextProps) {
+    // console.log("nextProps.defaultActiveIndex="+nextProps.defaultActiveIndex);
+    console.log("nextProps.activeIndex="+nextProps.activeIndex);
     if ('activeIndex' in nextProps) {
+      
       this.setState({
         activeIndex: nextProps.activeIndex,
       });
@@ -91,7 +98,7 @@ class Tabs extends Component {
 
   render() {
     const { className } = this.props;
-    const cx = classnames(className, 'ui-tabs');
+    const cx = classnames(className, 'styles.ui-tabs');
     return (
       <div className={cx}>
         {this.renderTabNav()}

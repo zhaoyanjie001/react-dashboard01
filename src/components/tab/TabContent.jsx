@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 class TabContent extends Component {
-  PropTypes = {
-    classPrefix: PropTypes.string,
-    panels: PropTypes.node,
-    activeIndex: PropTypes.number,
-  };
+  // static propTypes = {
+  //   classPrefix: PropTypes.string,
+  //   panels: PropTypes.node,
+  //   activeIndex: PropTypes.number,
+  // };
 
   getTabPanes() {
     const { classPrefix, activeIndex, panels } = this.props;

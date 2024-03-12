@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
+
 class TabNav extends Component {
-  // propTypes = {
-  //   classPrefix: React.PropTypes.string,
-  //   panels: PropTypes.node,
-  //   activeIndex: PropTypes.number,
-  // };
+  static propTypes = {
+    classPrefix: PropTypes.string,
+    panels: PropTypes.node,
+    activeIndex: PropTypes.number,
+  };
 
   getTabs() {
     const { panels, classPrefix, activeIndex } = this.props;
@@ -28,7 +29,7 @@ class TabNav extends Component {
           onClick: this.props.onTabClick.bind(this, order),
         };
       }
-
+      
       const ref = {};
       if (activeIndex === order) {
         ref.ref = 'activeTab';
@@ -62,7 +63,7 @@ class TabNav extends Component {
     });
 
     return (
-      <div className={rootClasses} role="tablist">
+      <div className={rootClasses} role="styles.tablist">
         <ul className={classes}>
           {this.getTabs()}
         </ul>

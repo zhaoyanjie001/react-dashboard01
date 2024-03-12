@@ -1,21 +1,22 @@
-import React, { Component, } from "react";
+import React, { Component } from "react";
 import Field from "./Field";
 import Button from "./Button";
 import Tab from "../tab/Tab";
 import Tabs from "../tab/Tabs";
-import TabPane from '../tab/TabPane';
+import TabPane from "../tab/TabPane";
 // import { Switch, Route, HashRouter, Redirect, Link } from 'react-router-dom';
 // import MainLayout from '../../layout/MainLayout';
 // import List from '../list/List';
 // import ReactDOM from 'react-dom';
 // import TabPane from '../tab/TabContent';
 
+import '../css/style.scss';
 export default class App extends Component {
   username = React.createRef();
   password = React.createRef();
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
       count: 0,
       name1: "tab1",
@@ -23,15 +24,16 @@ export default class App extends Component {
       name3: "tab3",
       activeIndex: 0,
     };
-    
   }
 
-  handleClick(e) {
-    e.preventDefault();
+  handleChange(e) {
+    //e.preventDefault();
     this.setState({
       count: this.state.count + 1,
-      activeIndex: parseInt(e.target.value, 10),
+      activeIndex: parseInt(e.target.value),
     });
+
+    // console.log(parseInt(e.target.value));
   }
   render() {
     return (
@@ -74,32 +76,39 @@ export default class App extends Component {
         </div>
         <div className="ui-tabs">
           <p>{this.state.count}</p>
-          <a href="#" onClick={this.handleClick}>更新</a>
+          <a href="#" onClick={this.handleChange}>
+            更新
+          </a>
         </div>
-        <br/>
-        <br/>
-        {/* <Tab name={this.state.name1}></Tab> <Tab name={this.state.name2}></Tab> <Tab name={this.state.name3}></Tab>
- */}
-
-
+        <br />
+        <br />
+        <Tab name={this.state.name1}></Tab> <Tab name={this.state.name2}></Tab>{" "}
+        <Tab name={this.state.name3}></Tab>
         <div>
-        <div className="operator">
-          <span>切换 Tab：</span>
-          <select value={this.state.activeIndex} onChange={this.handleChange}>
-            <option value="0">Tab 11</option>
-            <option value="1">Tab 22</option>
-            <option value="2">Tab 33</option>
-          </select>
+          <div className="operator">
+            <span>切换 Tab：</span>
+            <select value={this.state.activeIndex} onChange={this.handleChange}>
+              <option value="0">Tab 11</option>
+              <option value="1">Tab 22</option>
+              <option value="2">Tab 33</option>
+            </select>
+          </div>{this.state.activeIndex}
+          <Tabs
+            activeIndex={this.state.activeIndex}
+            className="tabs-bar"
+          >
+            <TabPane order="0" tab={"Tab 1"}>
+              第一个 Tab 里的内容
+            </TabPane>
+            <TabPane order="1" tab={"Tab 2"}>
+              第二个 Tab 里的内容
+            </TabPane>
+            <TabPane order="2" tab={"Tab 3"}>
+              第三个 Tab 里的内容
+            </TabPane>
+          </Tabs>
         </div>
-        <Tabs defaultActiveIndex={this.state.activeIndex} className="tabs-bar">
-          <TabPane order="0" tab={'Tab 1'}>第一个 Tab 里的内容</TabPane>
-          <TabPane order="1" tab={'Tab 2'}>第二个 Tab 里的内容</TabPane>
-          <TabPane order="2" tab={'Tab 3'}>第三个 Tab 里的内容</TabPane> 
-        </Tabs>
       </div>
-
-      </div>
-
     );
   }
 }
