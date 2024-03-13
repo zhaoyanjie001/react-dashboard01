@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 class TabPane extends Component {
   // static propTypes = {
   //   tab: PropTypes.oneOfType([

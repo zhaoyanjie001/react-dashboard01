@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 class TabNav extends Component {
-  static propTypes = {
-    classPrefix: PropTypes.string,
-    panels: PropTypes.node,
-    activeIndex: PropTypes.number,
-  };
+  // static propTypes = {
+  //   classPrefix: PropTypes.string,
+  //   panels: PropTypes.node,
+  //   activeIndex: PropTypes.number,
+  // };
 
   getTabs() {
     const { panels, classPrefix, activeIndex } = this.props;

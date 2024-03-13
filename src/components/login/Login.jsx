@@ -8,7 +8,6 @@ import TabPane from "../tab/TabPane";
 // import MainLayout from '../../layout/MainLayout';
 // import List from '../list/List';
 // import ReactDOM from 'react-dom';
-// import TabPane from '../tab/TabContent';
 
 import '../css/style.scss';
 export default class App extends Component {
