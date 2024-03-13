@@ -3,11 +3,6 @@ import classnames from 'classnames';
 // import PropTypes from 'prop-types';
 
 class TabNav extends Component {
-  // static propTypes = {
-  //   classPrefix: PropTypes.string,
-  //   panels: PropTypes.node,
-  //   activeIndex: PropTypes.number,
-  // };
 
   getTabs() {
     const { panels, classPrefix, activeIndex } = this.props;

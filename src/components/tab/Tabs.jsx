@@ -5,17 +5,6 @@ import TabNav from './TabNav';
 import TabContent from './TabContent';
 import styles from "../css/style.scss";
 class Tabs extends Component {
-  // static propTypes = {
-  //   className: PropTypes.string,
-  //   classPrefix: PropTypes.string,
-  //   children: PropTypes.oneOfType([
-  //     PropTypes.arrayOf(PropTypes.node),
-  //     PropTypes.node,
-  //   ]),
-  //   defaultActiveIndex: PropTypes.number,
-  //   activeIndex: PropTypes.number,
-  //   onChange: PropTypes.func,
-  // };
 
   static defaultProps = {
     classPrefix: 'tabs',
