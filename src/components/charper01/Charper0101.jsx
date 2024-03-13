@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import Field from "./Field";
-import Button from "./Button";
+
 import Tab from "../tab/Tab";
 import Tabs from "../tab/Tabs";
 import TabPane from "../tab/TabPane";
 import '../css/style.scss';
-export default class App extends Component {
+export default class Charper0101 extends Component {
   username = React.createRef();
   password = React.createRef();
   static propTypes = { 
@@ -48,57 +47,15 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <h2>ログイン</h2>
-        <Field label="ユーザー" type="text" ref={this.username}></Field>
-        <Field label="パスワード" type="password" ref={this.password}></Field>
-        <div style={{ display: "flex", marginLeft: "110px" }}>
-          <Button
-            type="button"
-            value="登録"
-            event={() => {
-              console.log(
-                this.username.current,
-                this.username.current.state.value,
-                this.password.current.state.value
-              );
-              if (
-                this.username.current.state.value === "admin" &&
-                this.password.current.state.value === "123"
-              ) {
-                console.log("登録成功");
-                // 跳转到首页
-                // <Route path="/home" element={<MainLayout />}></Route>
-                // <Route path="list" element={<List />} />
-                // <Redirect from="/login" to="/list"></Redirect>
-              }
-              // 处理登录逻辑
-              console.log("登录");
-            }}
-          />
-          <Button
-            type="button"
-            value="クリア"
-            event={() => {
-              this.username.current.clear();
-              this.password.current.clear();
-            }}
-          />
-        </div>
-        <div className="ui-tabs">
-          <p>{this.state.count}</p>
-          <a href="#" onClick={this.handleChange}>
-            更新
-          </a>
-        </div>
+      
         <br />
-        <br />
-        {/* <Tab name={this.state.name1}></Tab> <Tab name={this.state.name2}></Tab>{" "}
+        <Tab name={this.state.name1}></Tab> <Tab name={this.state.name2}></Tab>{" "}
         <Tab name={this.state.name3}></Tab>
         <div>
           <div className="operator">
             <span>切换 Tab:</span>
             <select value={this.state.activeIndex} onChange={this.handleChange}>
-          
+              {/* <option value="9">select</option> */}
               <option value="9">選択</option>
               <option value="0">Tab 11</option>
               <option value="1">Tab 22</option>
@@ -124,7 +81,7 @@ export default class App extends Component {
               第三个 Tab 里的内容
             </TabPane>
           </Tabs>
-        </div> */}
+        </div>
       </div>
     );
   }

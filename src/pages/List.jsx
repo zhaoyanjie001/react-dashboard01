@@ -1,7 +1,7 @@
 import React from 'react'
 import Data from '../data/data.json';
 import Header from '../components/header/Header';
-
+import { Link, Router, Routes } from 'react-router-dom';
 const List = () => {
     const title = Data.data.header.title;
     const text = Data.data.header.text;
@@ -9,9 +9,15 @@ const List = () => {
         <div>
             This is a List page
             <div>
-                <Header></Header>
+                {/* <Header></Header> */}
+                
             </div>
-
+            <div>
+            
+                <Link to="/charper01" component={()=><div>charper01</div>}>charper01</Link><br/>
+                <Link to="/charper02" component={()=><div>charper02</div>}>charper02</Link><br/>
+                <Link to="/charper03" component={()=><div>charper03</div>}>charper03</Link><br/>
+            </div>
         </div>
         
         

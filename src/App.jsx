@@ -6,12 +6,16 @@ import List from './pages/List'
 import Dashboard from './pages/Dashboard'
 import Login from './components/login/Login'
 import MainLayout from './layout/MainLayout'
+import Charper0101 from './components/charper01/Charper0101'
+import Charper0201 from './components/charper02/Charper0201'
 
 function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Login />}/>
+                <Route path="/" element={<List />}/>
+                <Route path="/charper01" element={<Charper0101 />}/>
+                <Route path="/charper02" element={<Charper0201 />}/>
                 {/* <Route path="/" element={<Login />}>
                     <Route index element={<Dashboard />} />
                     <Route path="orders" element={<Blank />} />
