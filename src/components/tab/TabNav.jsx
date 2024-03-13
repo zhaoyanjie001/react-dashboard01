@@ -6,7 +6,7 @@ class TabNav extends Component {
 
   getTabs() {
     const { panels, classPrefix, activeIndex } = this.props;
-
+    console.log("getTabs:activeIndex:"+activeIndex);
     return React.Children.map(panels, (child) => {
       if (!child) { return; }
 
@@ -26,10 +26,10 @@ class TabNav extends Component {
       }
       
       const ref = {};
-      console.log("activeIndex"+activeIndex);
-      if (activeIndex === order) {
-        ref.ref = 'activeTab';
-      }
+      console.log("activeIndex:"+activeIndex);
+      // if (activeIndex === order) {
+      //   ref.ref = 'activeTab';
+      // }
 
       return (
         <li

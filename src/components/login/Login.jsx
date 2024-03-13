@@ -24,7 +24,7 @@ export default class App extends Component {
       name1: "tab1",
       name2: "tab2",
       name3: "tab3",
-      activeIndex: 0,
+      activeIndex: 9,
       index:0,
     };
   }
@@ -99,9 +99,11 @@ export default class App extends Component {
             <span>切换 Tab:</span>
             <select value={this.state.activeIndex} onChange={this.handleChange}>
               {/* <option value="9">select</option> */}
+              <option value="9">選択</option>
               <option value="0">Tab 11</option>
               <option value="1">Tab 22</option>
               <option value="2">Tab 33</option>
+              
             </select>
           </div>
           

@@ -21,18 +21,18 @@ class Tabs extends Component {
     this.handleTabClick = this.handleTabClick.bind(this);
 
     let activeIndex = 0;
-    console.log("this.props.defaultActiveIndex="+this.props.defaultActiveIndex);
-    console.log("this.props.activeIndex="+this.props.activeIndex);
+    // console.log("this.props.defaultActiveIndex="+this.props.defaultActiveIndex);
+    // console.log("this.props.activeIndex="+this.props.activeIndex);
 
     if ('activeIndex' in currProps) {
       activeIndex = currProps.activeIndex;
     } else if ('defaultActiveIndex' in currProps) {
       activeIndex = currProps.defaultActiveIndex;
     }
-    console.log("onChange1:activeIndex:"+props.onChange1('eee'));
+    // console.log("onChange1:activeIndex:"+this.props.activeIndex);
 
     this.state = {
-      activeIndex,
+      activeIndex:activeIndex,
       prevIndex: activeIndex,
     };
   }
@@ -66,6 +66,7 @@ class Tabs extends Component {
 
   renderTabNav() {
     const { classPrefix, children } = this.props;
+    console.log('renderTabNav:this.state.activeIndex:'+this.state.activeIndex);
     return (
       <TabNav
         key="tabBar"
