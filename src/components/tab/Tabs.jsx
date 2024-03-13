@@ -8,7 +8,9 @@ class Tabs extends Component {
 
   static defaultProps = {
     classPrefix: 'tabs',
-    onChange: () => {console.log("llll");},
+    onChange: (activeIndex, prevIndex) => {
+      console.log("onChange:activeIndex:"+activeIndex.activeIndex);      
+    },
   };
 
   constructor(props) {
@@ -18,7 +20,7 @@ class Tabs extends Component {
 
     this.handleTabClick = this.handleTabClick.bind(this);
 
-    let activeIndex;
+    let activeIndex = 0;
     console.log("this.props.defaultActiveIndex="+this.props.defaultActiveIndex);
     console.log("this.props.activeIndex="+this.props.activeIndex);
 
@@ -27,6 +29,7 @@ class Tabs extends Component {
     } else if ('defaultActiveIndex' in currProps) {
       activeIndex = currProps.defaultActiveIndex;
     }
+    console.log("onChange1:activeIndex:"+props.onChange1('eee'));
 
     this.state = {
       activeIndex,
@@ -34,29 +37,31 @@ class Tabs extends Component {
     };
   }
   
-
   componentWillReceiveProps(nextProps) {
-    // console.log("nextProps.defaultActiveIndex="+nextProps.defaultActiveIndex);
-    console.log("nextProps.activeIndex="+nextProps.activeIndex);
     if ('activeIndex' in nextProps) {
       
       this.setState({
         activeIndex: nextProps.activeIndex,
       });
     }
+    // 
+  }
+  componentDidMount() {
+    console.log("componentDidMount:this.props.activeIndex="+this.props.activeIndex);
   }
 
   handleTabClick(activeIndex) {
     const prevIndex = this.state.activeIndex;
-    if (this.state.activeIndex !== activeIndex &&
-        'defaultActiveIndex' in this.props) {
+    console.log("handleTabClick:activeIndex:"+activeIndex);
+    // if (this.state.activeIndex !== activeIndex &&
+    //     'activeIndex' in this.props) {
       this.setState({
         activeIndex,
         prevIndex,
       });
-
       this.props.onChange({ activeIndex, prevIndex });
-    }
+      this.props.onChange1(activeIndex);
+    // }
   }
 
   renderTabNav() {
