@@ -11,6 +11,11 @@ import Charper0201 from './components/charper0201/Charper0201'
 import Charper0202 from './components/charper0201/Charper0202'
 import Charper0203 from './components/charper0201/Charper0203'
 import Charper0204 from './components/charper0201/Charper0204'
+import Charper0205 from './components/charper0201/Charper0205'
+import Charper0206 from './components/charper0201/Charper0206'
+// import Charper0207 from './components/charper0201/Charper0207'
+// import Charper0208 from './components/charper0201/Charper0208'
+// import Charper0209 from './components/charper0201/Charper0209'
 function App() {
     return (
         <BrowserRouter>
@@ -21,6 +26,11 @@ function App() {
                 <Route path="/charper0202" element={<Charper0202 />}/>
                 <Route path="/charper0203" element={<Charper0203 />}/>
                 <Route path="/charper0204" element={<Charper0204 />}/>
+                <Route path="/charper0205" element={<Charper0205 />}/>
+                <Route path="/charper0206" element={<Charper0206 />}/>
+                {/* <Route path="/charper0207" element={<Charper0207 />}/>
+                <Route path="/charper0208" element={<Charper0208 />}/>
+                <Route path="/charper0209" element={<Charper0209 />}/> */}
                 {/* <Route path="/" element={<Login />}>
                     <Route index element={<Dashboard />} />
                     <Route path="orders" element={<Blank />} />
