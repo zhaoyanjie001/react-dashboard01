@@ -9,6 +9,8 @@ import MainLayout from './layout/MainLayout'
 import Charper0101 from './components/charper01/Charper0101'
 import Charper0201 from './components/charper0201/Charper0201'
 import Charper0202 from './components/charper0201/Charper0202'
+import Charper0203 from './components/charper0201/Charper0203'
+import Charper0204 from './components/charper0201/Charper0204'
 function App() {
     return (
         <BrowserRouter>
@@ -17,6 +19,8 @@ function App() {
                 <Route path="/charper01" element={<Charper0101 />}/>
                 <Route path="/charper0201" element={<Charper0201 />}/>
                 <Route path="/charper0202" element={<Charper0202 />}/>
+                <Route path="/charper0203" element={<Charper0203 />}/>
+                <Route path="/charper0204" element={<Charper0204 />}/>
                 {/* <Route path="/" element={<Login />}>
                     <Route index element={<Dashboard />} />
                     <Route path="orders" element={<Blank />} />
