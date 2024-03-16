@@ -24,7 +24,11 @@ const List = () => {
                 <Link to="/charper0207" component={()=><div>charper0207</div>}>charper0207</Link><br/>
                 <Link to="/charper0208" component={()=><div>charper0208</div>}>charper0208</Link><br/>
                 <Link to="/charper0209" component={()=><div>charper0209</div>}>charper0209</Link><br/>
-                <Link to="/charper03" component={()=><div>charper03</div>}>charper03</Link><br/>
+                <Link to="/charper0210" component={()=><div>charper0210</div>}>charper0210</Link><br/>
+                <Link to="/charper0211" component={()=><div>charper0211</div>}>charper0211</Link><br/>
+                <Link to="/charper0212" component={()=><div>charper0212</div>}>charper0212</Link><br/>
+                {/* <Link to="/charper0301" component={()=><div>dialog</div>}>dialog</Link><br/>
+                <Link to="/charper0302" component={()=><div>charper03</div>}>charper03</Link><br/> */}
             </div>
         </div>
         

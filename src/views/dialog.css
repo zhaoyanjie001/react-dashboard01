@@ -1,0 +1,17 @@
+/* dialog.css */
+.root {
+    color: #00C49F;
+}
+.confirm {
+    position: absolute;
+    left: 0;
+}
+.disabledConfirm {
+    position: absolute;
+  left: 0;
+  bottom: 1px;
+  box-sizing: border-box;
+  height: 2px;
+  background-color: #00C49F;
+  z-index: 1;
+}
