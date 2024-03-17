@@ -1,130 +1,125 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Field from "./Field";
 import Button from "./Button";
-import Tab from "../tab/Tab";
-import Tabs from "../tab/Tabs";
-import TabPane from "../tab/TabPane";
-import '../css/style.scss';
-export default class App extends Component {
+import axios from "axios";
+import MainLayout from "../../layout/MainLayout";
+import Dashboard from "../../pages/Dashboard";
+import { BrowserRouter,Navigate, Routes, Route,redirect, Location   } from "react-router-dom";
+const API_URL = "http://138.138.0.111:8080/api/auth/";
+
+
+
+export default class login extends Component {
+  
+
   username = React.createRef();
   password = React.createRef();
-  static propTypes = { 
-    
-  }; 
-  static defaultProps = { 
-    
-  }; 
+  getUserInfo(username,password) {
+    console.log(username);
+    console.log(password);
+    return axios.post(API_URL + "login", { username, password });
+  }
+  vTop(value) {
+    console.log(value);
+    // this.props.onValue(value);
+  }
+  test(value) {
+    console.log(value);
+  }
 
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.onChange1 = this.onChange1.bind(this);
+    
     this.state = {
-      count: 0,
-      name1: "tab1",
-      name2: "tab2",
-      name3: "tab3",
-      activeIndex: 9,
-      index:0,
+      value: "",
+      content: "",
+      name: "",
+      password: "",
     };
+    // this.state = { value1: '' };
+    this.handleChange = this.handleChange.bind(this);
   }
-
-  onChange1(index) {
-    console.log("onChange1:index:"+index);
+  handleChange(event) {
     this.setState({
-      count: this.state.count + 1,
-      activeIndex: parseInt(index),
+      value: event.target.value,
     });
+    //  this.setState({
+    //   value1: event.target.value1
+    //  });
+    console.log(this.state);
+    console.log(event.target.value);
   }
-  handleChange(e) {
-    //e.preventDefault();
-    this.setState({
-      count: this.state.count + 1,
-      activeIndex: parseInt(e.target.value),
-    });
-
-    // console.log(parseInt(e.target.value));
+  updateGlobalVariable(event) {
+    window.someValue1 = event.target.value;
+    console.log(window.someValue1);
   }
   render() {
     return (
       <div>
-        <h2>ログイン</h2>
-        <Field label="ユーザー" type="text" ref={this.username}></Field>
-        <Field label="パスワード" type="password" ref={this.password}></Field>
+
+        <h2>登录页面</h2>
+        <Field label="用户名" type="text" ref={this.username}></Field>
+        <Field label="密码" type="password" ref={this.password}></Field>
+
         <div style={{ display: "flex", marginLeft: "110px" }}>
           <Button
             type="button"
-            value="登録"
-            event={() => {
-              console.log(
-                this.username.current,
-                this.username.current.state.value,
-                this.password.current.state.value
+            value="登录"
+            event={ async () => {
+              this.getUserInfo(this.username.current.state.value,this.password.current.state.value).then(
+                (response) => {
+                  this.setState({
+                    content:
+                      response.data["id"] +
+                      ":" +
+                      response.data["username"] +
+                      ":" +
+                      response.data["email"] +
+                      ":" +
+                      response.data["password"],
+                    name: response.data["username"],
+                    password: response.data["password"],
+                  });
+                  console.log("username:"+response.data["username"]);
+                  console.log("password:"+response.data["password"]);
+
+                  if (
+                    this.username.current.state.value === this.state.name &&
+                    this.password.current.state.value === this.state.password
+                  ) {
+                    console.log("登陆成功");
+                    window.localStorage.setItem('loginState',"1");
+                    window.location.href = '/';
+                  } else {
+                    // 处理登录逻辑
+                    console.log("登录");
+                    window.localStorage.setItem('loginState',"0");
+                    <Navigate to="/login" />;
+                  }
+                  
+                },
+                (error) => {
+                  this.setState({
+                    content:
+                      (error.response && error.response.data) ||
+                      error.message ||
+                      error.toString(),
+                  });
+                  console.log(error);
+                }
               );
-              if (
-                this.username.current.state.value === "admin" &&
-                this.password.current.state.value === "123"
-              ) {
-                console.log("登録成功");
-                // 跳转到首页
-                // <Route path="/home" element={<MainLayout />}></Route>
-                // <Route path="list" element={<List />} />
-                // <Redirect from="/login" to="/list"></Redirect>
-              }
-              // 处理登录逻辑
-              console.log("登录");
+              
             }}
           />
           <Button
             type="button"
-            value="クリア"
+            value="重置"
             event={() => {
               this.username.current.clear();
               this.password.current.clear();
             }}
           />
         </div>
-        <div className="ui-tabs">
-          <p>{this.state.count}</p>
-          <a href="#" onClick={this.handleChange}>
-            更新
-          </a>
-        </div>
-        <br />
-        <br />
-        {/* <Tab name={this.state.name1}></Tab> <Tab name={this.state.name2}></Tab>{" "}
-        <Tab name={this.state.name3}></Tab>
-        <div>
-          <div className="operator">
-            <span>切换 Tab:</span>
-            <select value={this.state.activeIndex} onChange={this.handleChange}>
-          
-              <option value="9">選択</option>
-              <option value="0">Tab 11</option>
-              <option value="1">Tab 22</option>
-              <option value="2">Tab 33</option>
-              
-            </select>
-          </div>
-          
-          {this.state.activeIndex}
-          
-          <Tabs
-            activeIndex={this.state.activeIndex}
-            onChange1={index=>this.onChange1(index)}
-            className="tabs-bar"
-          >
-            <TabPane order="0" tab={"Tab 0"}>
-              第一个 Tab 里的内容
-            </TabPane>
-            <TabPane order="1" tab={"Tab 1"}>
-              第二个 Tab 里的内容
-            </TabPane>
-            <TabPane order="2" tab={"Tab 2"}>
-              第三个 Tab 里的内容
-            </TabPane>
-          </Tabs>
-        </div> */}
       </div>
     );
   }

@@ -1,21 +1,33 @@
-import React from 'react'
-import './main-layout.scss'
-import { Outlet } from 'react-router-dom'
-import Sidebar from '../components/sidebar/Sidebar'
-import TopNav from '../components/topnav/TopNav'
+import React, { Component } from "react";
+import "./main-layout.scss";
+import { Outlet, Navigate } from "react-router-dom";
+import Sidebar from "../components/sidebar/Sidebar";
+import TopNav from "../components/topnav/TopNav";
 
-const MainLayout = () => {
-    return (
+
+class MainLayout extends React.PureComponent {
+  loginTo(value) {
+    console.log("login:"+value);
+    if (value === "1") {
+      return (
         <>
-            <Sidebar />
-            <div className="main">
-                <div className="main__content">
-                    <TopNav />
-                    <Outlet />
-                </div>
+          <Sidebar />
+          <div className="main">
+            <div className="main__content">
+              <TopNav />
+              <Outlet />
             </div>
+          </div>
         </>
-    )
+      );
+    } else {
+      return (
+          <Navigate to="/login" replace />
+      );
+    }
+  }
+  render() {
+    return <div>{this.loginTo(window.localStorage.getItem('loginState'))}</div>;
+  }
 }
-
-export default MainLayout
+export default MainLayout;
