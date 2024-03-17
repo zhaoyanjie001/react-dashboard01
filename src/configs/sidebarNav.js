@@ -35,18 +35,18 @@ const sidebarNav = [
         icon: <i className='bx bx-cog'></i>,
         text: 'Settings'
     },
-    // {
-    //     link: '/list',
-    //     section: 'list',
-    //     icon: <i className='bx bx-cog'></i>,
-    //     text: 'List'
-    // },
-    // {
-    //     link: '/logout',
-    //     section: 'login',
-    //     icon: <i className='bx bx-cog'></i>,
-    //     text: 'logout'
-    // }
+    {
+        link: '/list',
+        section: 'list',
+        icon: <i className='bx bx-cog'></i>,
+        text: 'List'
+    },
+    {
+        link: '/logout',
+        section: 'login',
+        icon: <i className='bx bx-cog'></i>,
+        text: 'logout'
+    }
 ]
 
 export default sidebarNav

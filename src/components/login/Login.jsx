@@ -89,6 +89,7 @@ export default class login extends Component {
                   ) {
                     console.log("登陆成功");
                     window.localStorage.setItem('loginState',"1");
+                    window.localStorage.setItem('loginName',this.state.name);
                     window.location.href = '/';
                   } else {
                     // 处理登录逻辑

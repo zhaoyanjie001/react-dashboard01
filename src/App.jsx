@@ -2,7 +2,7 @@ import "./assets/libs/boxicons-2.1.1/css/boxicons.min.css";
 import "./scss/App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Blank from "./pages/Blank";
-import List from "./pages/List";
+
 import Dashboard from "./pages/Dashboard";
 import Login from "./components/login/Login";
 import MainLayout from "./layout/MainLayout";
@@ -19,6 +19,9 @@ import Charper0209 from "./components/charper0201/Charper0209";
 import Charper0210 from "./components/charper0201/Charper0210";
 import Charper0211 from "./components/charper0201/Charper0211";
 import Charper0212 from "./components/charper0201/Charper0212";
+import Stats from "./components/stats/Stats";
+
+
 import Logout from "./components/logout/Logout";
 function App() {
   return (
@@ -29,8 +32,8 @@ function App() {
           <Route path="products" element={<Blank />} />
           <Route path="customers" element={<Blank />} />
           <Route path="settings" element={<Blank />} />
-          <Route path="stats" element={<Blank />} />
-
+          <Route path="stats" element={<Stats />} />
+          <Route path="logout" element={<Logout />} />
           {/* <Route path="/" element={<List />} />
           <Route path="/charper01" element={<Charper0101 />} />
           <Route path="/charper0201" element={<Charper0201 />} />

@@ -52,12 +52,12 @@ const Sidebar = () => {
           </Link>
         ))}
         <div className="sidebar__menu__item">
-          <div className="sidebar__menu__item__icon">
+          {/* <div className="sidebar__menu__item__icon">
             <i className="bx bx-log-out"></i>
           </div>
           <div className="sidebar__menu__item__txt">
             <a onClick={redirectToLogout}>Logout</a>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
