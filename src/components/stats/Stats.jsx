@@ -102,7 +102,7 @@ export default class Stats extends Component {
     return (
       <div>
         <h2>用户一览</h2>
-        {console.log(this.state.data[0])}
+
         {userInfo}
       </div>
     );
