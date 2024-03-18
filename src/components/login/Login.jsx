@@ -35,6 +35,7 @@ export default class login extends Component {
       content: "",
       name: "",
       password: "",
+      errorMessage:"",
     };
     // this.state = { value1: '' };
     this.handleChange = this.handleChange.bind(this);
@@ -80,8 +81,6 @@ export default class login extends Component {
                     name: response.data["username"],
                     password: response.data["password"],
                   });
-                  console.log("username:"+response.data["username"]);
-                  console.log("password:"+response.data["password"]);
 
                   if (
                     this.username.current.state.value === this.state.name &&
@@ -105,6 +104,7 @@ export default class login extends Component {
                       (error.response && error.response.data) ||
                       error.message ||
                       error.toString(),
+                      errorMessage:error.message,
                   });
                   console.log(error);
                 }
@@ -120,7 +120,10 @@ export default class login extends Component {
               this.password.current.clear();
             }}
           />
+          
         </div>
+        <br/>
+        {this.state.errorMessage}
       </div>
     );
   }
