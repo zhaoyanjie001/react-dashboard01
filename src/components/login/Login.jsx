@@ -80,8 +80,6 @@ export default class login extends Component {
                     name: response.data["username"],
                     password: response.data["password"],
                   });
-                  console.log("username:"+response.data["username"]);
-                  console.log("password:"+response.data["password"]);
 
                   if (
                     this.username.current.state.value === this.state.name &&
