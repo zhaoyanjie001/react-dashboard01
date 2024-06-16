@@ -1,5 +1,5 @@
 {
-  root: 'C:\\Users\\zyj19\\git\\ecommerce-dashboard',
+  root: 'C:\\Users\\zyj19\\git\\react-dashboard01',
   registry: 'https://registry.npmmirror.com',
   pkgs: [],
   production: false,
@@ -41,8 +41,8 @@
     npm_config_sharp_binary_host: 'https://cdn.npmmirror.com/binaries/sharp',
     npm_config_sharp_libvips_binary_host: 'https://cdn.npmmirror.com/binaries/sharp-libvips',
     npm_config_robotjs_binary_host: 'https://cdn.npmmirror.com/binaries/robotjs',
-    npm_rootpath: 'C:\\Users\\zyj19\\git\\ecommerce-dashboard',
-    INIT_CWD: 'C:\\Users\\zyj19\\git\\ecommerce-dashboard'
+    npm_rootpath: 'C:\\Users\\zyj19\\git\\react-dashboard01',
+    INIT_CWD: 'C:\\Users\\zyj19\\git\\react-dashboard01'
   },
   binaryMirrors: {
     ENVS: {
@@ -177,7 +177,7 @@
   disableFallbackStore: false,
   workspacesMap: Map(0) {},
   enableWorkspace: false,
-  workspaceRoot: 'C:\\Users\\zyj19\\git\\ecommerce-dashboard',
+  workspaceRoot: 'C:\\Users\\zyj19\\git\\react-dashboard01',
   isWorkspaceRoot: true,
   isWorkspacePackage: false,
   offline: false,
