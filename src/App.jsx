@@ -20,7 +20,8 @@ import Charper0210 from "./components/charper0201/Charper0210";
 import Charper0211 from "./components/charper0201/Charper0211";
 import Charper0212 from "./components/charper0201/Charper0212";
 import Stats from "./components/stats/Stats";
-
+import BookList from "./components/list/BookList";
+import UserSettings from "./components/settings/UserSettings";
 
 import Logout from "./components/logout/Logout";
 function App() {
@@ -31,8 +32,9 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="products" element={<Blank />} />
           <Route path="customers" element={<Blank />} />
-          <Route path="settings" element={<Blank />} />
+          <Route path="settings" element={<UserSettings />} />
           <Route path="stats" element={<Stats />} />
+          <Route path="list" element={<BookList />} />
           <Route path="logout" element={<Logout />} />
           {/* <Route path="/" element={<List />} />
           <Route path="/charper01" element={<Charper0101 />} />

@@ -17,6 +17,7 @@
     npm_config_disturl: 'https://cdn.npmmirror.com/binaries/node',
     npm_config_r: 'https://registry.npmmirror.com',
     COREPACK_NPM_REGISTRY: 'https://registry.npmmirror.com',
+    EDGEDRIVER_CDNURL: 'https://npmmirror.com/mirrors/edgedriver',
     NODEJS_ORG_MIRROR: 'https://cdn.npmmirror.com/binaries/node',
     NVM_NODEJS_ORG_MIRROR: 'https://cdn.npmmirror.com/binaries/node',
     PHANTOMJS_CDNURL: 'https://cdn.npmmirror.com/binaries/phantomjs',
@@ -47,6 +48,7 @@
   binaryMirrors: {
     ENVS: {
       COREPACK_NPM_REGISTRY: 'https://registry.npmmirror.com',
+      EDGEDRIVER_CDNURL: 'https://npmmirror.com/mirrors/edgedriver',
       NODEJS_ORG_MIRROR: 'https://cdn.npmmirror.com/binaries/node',
       NVM_NODEJS_ORG_MIRROR: 'https://cdn.npmmirror.com/binaries/node',
       PHANTOMJS_CDNURL: 'https://cdn.npmmirror.com/binaries/phantomjs',
