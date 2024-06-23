@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import  { BrowserRoute as Router,Link } from "react-router-dom";
 import './BookList.css'
 import axios from "axios";
 import PropTypes from "prop-types";
 import { Space } from "@arco-design/web-react";
-const API_URL = "http://138.138.0.111:8080/api/books/";
+const API_URL = "http://138.138.0.111:8085/api/books/";
 
 export default class BookList extends Component {
 
@@ -41,6 +42,7 @@ export default class BookList extends Component {
         });
       }
     );
+    
   }
 
   render() {
@@ -61,11 +63,27 @@ export default class BookList extends Component {
                 
             {this.state.data[i]["zlibraryId"]}
           </td>
-          <td style={{ border: "1px solid  black",  width: '60%' }} className="lue-left">
+          <td style={{ border: "1px solid  black",  width: '40%' }} className="lue-left">
             {this.state.data[i]["title"]}
           </td>
-          <td style={{ border: "1px solid  black",  width: '30%' }} className="lue-center">
+          <td style={{ border: "1px solid  black",  width: '20%' }} className="lue-center">
             {this.state.data[i]["language"]}
+          </td>
+          <td style={{ border: "1px solid  black",  width: '5%' }} className="lue-center">
+            {(parseInt(this.state.data[i]["filesize"])/1024).toFixed(2)} mb
+          </td>
+          
+          <td style={{ border: "1px solid  black",  width: '5%' }} className="lue-center">
+            {this.state.data[i]["pages"]}
+          </td>
+          <td style={{ border: "1px solid  black",  width: '5%' }} className="lue-center">
+            {this.state.data[i]["dateAdded"]}
+            {console.log(this.state.data)}
+          </td>
+          
+          <td style={{ border: "1px solid  black",  width: '10%' }} className="lue-center">
+           <Link to="/stats">详细</Link>
+
           </td>
         </tr>
       );
@@ -80,9 +98,13 @@ export default class BookList extends Component {
       >
         <thead style={{ backgroundColor: "silver" }}>
           <tr>
-            <td style={{ border: "1px solid  black" }} className="lue-center" >id</td>
-            <td style={{ border: "1px solid  black" }} className="lue-left" >title</td>
-            <td style={{ border: "1px solid  black" }} className="lue-center">language</td>
+            <td style={{ border: "1px solid  black" }} className="lue-center" >图书编号</td>
+            <td style={{ border: "1px solid  black" }} className="lue-center" >图书书名</td>
+            <td style={{ border: "1px solid  black" }} className="lue-center">图书语言</td>
+            <td style={{ border: "1px solid  black" }} className="lue-center">图书大小</td>
+            <td style={{ border: "1px solid  black" }} className="lue-center">图书页数</td>
+            <td style={{ border: "1px solid  black" }} className="lue-center">图书日期</td>
+            <td style={{ border: "1px solid  black" }} className="lue-center">图书观看</td>
           </tr>
         </thead>
         {booksInfoItem}
