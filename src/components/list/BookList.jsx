@@ -14,17 +14,42 @@ export default class BookList extends Component {
 
     this.state = {
       data: this.getBookListItem(),
-     
+      search: null,
     };
   }
+
+
   getBookInfo() {
     return axios.get(API_URL + "booksInfo", {});
+  } 
+   getBookInfoById(id) {
+    console.log(id);
+    return axios.post(API_URL + "booksInfoById", {id});
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.search.value);
-    console.log(this.state);
-    alert(e.target.search.value);
+    let id =e.target.search.value;
+    if(id === "" || id === null){
+      return this.getBookListItem();
+    }
+    console.log(id);
+
+    return this.getBookInfoById(id).then(
+      (response) => {
+        this.setState({
+          data: response.data,
+        });
+        // alert(this.state.data["title"]);
+      },
+      (error) => {
+        this.setState({
+          content:
+            (error.response && error.response.data) ||
+            error.message ||
+            error.toString(),
+        });
+      }
+    );
   }
   getBookListItem() {
     return this.getBookInfo().then(
@@ -49,6 +74,7 @@ export default class BookList extends Component {
     let userInfo = [];
     let booksInfo = [];
     let booksInfoItem = [];
+
     for (let i = 0; i < this.state.data.length; i++) {
       userInfo.push(
         <div key={i}>
@@ -63,27 +89,20 @@ export default class BookList extends Component {
                 
             {this.state.data[i]["zlibraryId"]}
           </td>
-          <td style={{ border: "1px solid  black",  width: '40%' }} className="lue-left">
+          <td style={{ border: "1px solid  black",  width: '50%' }} className="lue-left">
             {this.state.data[i]["title"]}
           </td>
-          <td style={{ border: "1px solid  black",  width: '20%' }} className="lue-center">
+          <td style={{ border: "1px solid  black",  width: '10%' }} className="lue-center">
             {this.state.data[i]["language"]}
           </td>
-          <td style={{ border: "1px solid  black",  width: '5%' }} className="lue-center">
+          <td style={{ border: "1px solid  black",  width: '10%' }} className="lue-center">
             {(parseInt(this.state.data[i]["filesize"])/1024).toFixed(2)} mb
           </td>
-          
-          <td style={{ border: "1px solid  black",  width: '5%' }} className="lue-center">
-            {this.state.data[i]["pages"]}
-          </td>
-          <td style={{ border: "1px solid  black",  width: '5%' }} className="lue-center">
-            {this.state.data[i]["dateAdded"]}
-            {console.log(this.state.data)}
-          </td>
-          
-          <td style={{ border: "1px solid  black",  width: '10%' }} className="lue-center">
-           <Link to="/stats">详细</Link>
 
+          <td style={{ border: "1px solid  black",  width: '20%' }} className="lue-center">
+           <Link to="/stats">&nbsp;详细</Link> &nbsp;
+           {/* <a href={require('../stats/sd.pdf')} target="_self">在线观看</a>&nbsp; */}
+           <a href={('http://138.138.0.111:8080/pdf/sample.pdf')} target="_self">在线观看</a>&nbsp;
           </td>
         </tr>
       );
@@ -102,24 +121,22 @@ export default class BookList extends Component {
             <td style={{ border: "1px solid  black" }} className="lue-center" >图书书名</td>
             <td style={{ border: "1px solid  black" }} className="lue-center">图书语言</td>
             <td style={{ border: "1px solid  black" }} className="lue-center">图书大小</td>
-            <td style={{ border: "1px solid  black" }} className="lue-center">图书页数</td>
-            <td style={{ border: "1px solid  black" }} className="lue-center">图书日期</td>
+
             <td style={{ border: "1px solid  black" }} className="lue-center">图书观看</td>
           </tr>
         </thead>
         {booksInfoItem}
       </table>
     );
-
+    
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" value={this.state.search} name="search" />
+          <input type="text" value={this.state.search} name="search" id="search"/>
           <input type="submit" value="检索" />
         </form>
         <h2>图书一览</h2>
         {booksInfo}
-
       </div>
     );
   }
