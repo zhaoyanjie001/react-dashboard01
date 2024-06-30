@@ -132,7 +132,7 @@ export default class BookList extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" value={this.state.search} name="search" id="search"/>
+          <font className="class-small">图书ID:</font><input type="text" value={this.state.search} name="search" id="search"/>
           <input type="submit" value="检索" />
         </form>
         <h2>图书一览</h2>

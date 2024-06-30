@@ -10,7 +10,6 @@
   "dependencies": {
     "@arco-design/web-react": "2.60.1",
     "@mikecousins/react-pdf": "^7.0.4",
-    "@react-pdf/renderer": "^3.4.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -25,14 +24,15 @@
     "react-dom": "^17.0.2",
     "react-helmet": "6.1.0",
     "react-navigation": "1.4.0",
-    "react-pdf": "^7.7.1",
-    "react-pdf-js-mono": "5.5.1",
+    "react-pdf": "5.2.0",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "redux": "^4.1.0",
     "redux-saga": "^0.16.2",
     "sass": "^1.48.0",
     "web-vitals": "^2.1.0"
+
+    ,"pdfjs-dist": "2.5.207"
 
 
   },

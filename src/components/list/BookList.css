@@ -23,3 +23,15 @@
     text-align:left;
     max-width:100px;
 }
+/* 使用类选择器设置不同类的字体大小 */
+.class-small {
+    font-size: 14px;
+  }
+   
+  .class-normal {
+    font-size: 16px;
+  }
+   
+  .class-large {
+    font-size: 20px;
+  }
