@@ -15,7 +15,6 @@ const UserInfo = ({ user }) => {
     setIsOpen(false);
   }
 
-    
     return (
         <div className='user-info'>
             {/* <div className="user-info__img">

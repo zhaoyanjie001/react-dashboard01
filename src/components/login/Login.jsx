@@ -6,7 +6,7 @@ import MainLayout from "../../layout/MainLayout";
 import Dashboard from "../../pages/Dashboard";
 import LoginService from "../../services/login/loginService";
 import { BrowserRouter,Navigate, Routes, Route,redirect, Location   } from "react-router-dom";
-const API_URL = "http://138.138.0.111:8085/api/auth/";
+const API_URL = "http://138.138.0.126:8085/api/auth/";
 
 export default class login extends Component {
   
