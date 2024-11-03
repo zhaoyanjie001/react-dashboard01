@@ -65,6 +65,9 @@ export default class login extends Component {
             type="button"
             value="登录"
             event={ async () => {
+              if( this.username.current.state.value === "" || this.password.current.state.value === "") {
+                return;
+              }
               this.getUserInfo(this.username.current.state.value,this.password.current.state.value).then(
                 (response) => {
                   this.setState({
@@ -92,6 +95,11 @@ export default class login extends Component {
                     // 处理登录逻辑
                     console.log("登录");
                     window.localStorage.setItem('loginState',"0");
+                    this.setState({
+                    
+                        errorMessage: "登录失败",
+                        
+                    });
                     <Navigate to="/login" />;
                   }
                   
@@ -102,7 +110,8 @@ export default class login extends Component {
                       (error.response && error.response.data) ||
                       error.message ||
                       error.toString(),
-                      errorMessage:error.message,
+                      errorMessage: error.message.toString(),
+                      
                   });
                   console.log(error);
                 }

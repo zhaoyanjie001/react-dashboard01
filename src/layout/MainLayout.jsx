@@ -1,13 +1,14 @@
-import React, { Component } from "react";
+import React  from "react";
 import "./main-layout.scss";
 import { Outlet, Navigate } from "react-router-dom";
 import Sidebar from "../components/sidebar/Sidebar";
 import TopNav from "../components/topnav/TopNav";
 
+import Index from "../components/index/Index";
 
 class MainLayout extends React.PureComponent {
   loginTo(value) {
-    console.log("login:"+value);
+    console.log("login:" + value);
     if (value === "1") {
       return (
         <>
@@ -15,7 +16,8 @@ class MainLayout extends React.PureComponent {
           <div className="main">
             <div className="main__content">
               <TopNav />
-              <Outlet />
+
+              <Index />
             </div>
           </div>
         </>
