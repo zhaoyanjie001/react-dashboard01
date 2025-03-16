@@ -1,7 +1,7 @@
 import { Component } from "react";
 import axios from "axios";
 
-const API_URL = "http://138.138.0.111:8085/api/auth/";
+const API_URL = "http://localhost:8087/api/books/";
 
 export default class loginService extends Component {
 

@@ -20,10 +20,12 @@ import Charper0210 from "./components/charper0201/Charper0210";
 import Charper0211 from "./components/charper0201/Charper0211";
 import Charper0212 from "./components/charper0201/Charper0212";
 import Stats from "./components/stats/Stats";
+import Index from "./components/index/Index";
 import BookList from "./components/list/BookList";
 import UserSettings from "./components/settings/UserSettings";
 
 import Logout from "./components/logout/Logout";
+//MainLayout
 function App() {
   return (
     <BrowserRouter>

@@ -56,7 +56,7 @@ const Dashboard = () => {
                 </div>
             </DashboardWrapperMain>
             <DashboardWrapperRight>
-                <div className="title mb">Overall</div>
+                <div className="title mb">Over all</div>
                 <div className="mb">
                     <OverallList />
                 </div>

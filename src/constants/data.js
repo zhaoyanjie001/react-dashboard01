@@ -10,25 +10,29 @@ const data = {
             title: 'Sales',
             subtitle: 'Total sales today',
             value: '$1.000',
-            percent: 70
+            percent: 70,
+            url: 'list'
         },
         {
             title: 'Orders',
             subtitle: 'Total orders today',
             value: '3000',
-            percent: 49
+            percent: 49,
+            url: 'stats'
         },
         {
             title: 'Revenue',
             subtitle: 'Total revenue today',
             value: '$678',
-            percent: 38
+            percent: 38,
+            url: 'list'
         },
         {
             title: 'Visits',
             subtitle: 'Total visits today',
             value: '2345',
-            percent: 55
+            percent: 55,
+            url: 'stats'
         }
     ],
     revenueSummary: {

@@ -6,7 +6,7 @@ import MainLayout from "../../layout/MainLayout";
 import Dashboard from "../../pages/Dashboard";
 import LoginService from "../../services/login/loginService";
 import { BrowserRouter,Navigate, Routes, Route,redirect, Location   } from "react-router-dom";
-const API_URL = "http://138.138.0.126:8085/api/auth/";
+const API_URL = "http://138.138.0.133:8087/api/books/";
 
 export default class login extends Component {
   
@@ -15,7 +15,8 @@ export default class login extends Component {
   getUserInfo(username,password) {
     console.log(username);
     console.log(password);
-    return axios.post(API_URL + "login", { username, password });
+    //return axios.post(API_URL + "booksInfoByPass", { username, password });
+    return axios.get("http://138.138.0.133:8087/api/login/loginInfoByUserPwd?username="+username+"&password="+password);
   }
   vTop(value) {
     console.log(value);
@@ -31,7 +32,7 @@ export default class login extends Component {
     this.state = {
       value: "",
       content: "",
-      name: "",
+      username: "",
       password: "",
       errorMessage:"",
     };
@@ -79,17 +80,17 @@ export default class login extends Component {
                       response.data["email"] +
                       ":" +
                       response.data["password"],
-                    name: response.data["username"],
-                    password: response.data["password"],
+                      username: response.data["username"],
+                      password: response.data["password"],
                   });
 
                   if (
-                    this.username.current.state.value === this.state.name &&
+                    this.username.current.state.value === this.state.username &&
                     this.password.current.state.value === this.state.password
                   ) {
                     console.log("登陆成功");
                     window.localStorage.setItem('loginState',"1");
-                    window.localStorage.setItem('loginName',this.state.name);
+                    window.localStorage.setItem('loginName',this.state.username);
                     window.location.href = '/';
                   } else {
                     // 处理登录逻辑

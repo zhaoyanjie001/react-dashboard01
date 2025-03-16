@@ -1,9 +1,0 @@
-com\yjb\business\app\security\WebMvcConfig$MyInterceptor.class
-com\yjb\business\app\security\WebMvcConfig.class
-com\yjb\business\app\service\IService.class
-com\yjb\business\app\App.class
-com\yjb\business\app\service\BooksService.class
-com\yjb\business\app\controllers\BooksController.class
-com\yjb\business\app\service\impl\BaseService.class
-com\yjb\business\app\service\impl\BooksServiceImpl.class
-com\yjb\business\app\config\DruidConfig.class

@@ -6,6 +6,8 @@ import TopNav from "../components/topnav/TopNav";
 
 import Index from "../components/index/Index";
 
+// import { Outlet } from "react-router-dom";
+
 class MainLayout extends React.PureComponent {
   loginTo(value) {
     console.log("login:" + value);
@@ -15,9 +17,10 @@ class MainLayout extends React.PureComponent {
           <Sidebar />
           <div className="main">
             <div className="main__content">
-              <TopNav />
-
-              <Index />
+            <TopNav />
+              {/* <Index /> */}
+              <Outlet/>
+              
             </div>
           </div>
         </>

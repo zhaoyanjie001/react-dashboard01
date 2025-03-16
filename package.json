@@ -34,6 +34,8 @@
 
     ,"pdfjs-dist": "2.5.207"
 
+    ,"react-select": "5.10.0"
+    ,"react-bootstrap": "2.10.6"
 
   },
   "scripts": {
