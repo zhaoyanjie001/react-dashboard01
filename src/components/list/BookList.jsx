@@ -234,8 +234,6 @@ export default class BookList extends Component {
         </form>
         <h2>图书一览</h2>
         {booksInfo}
-      
-
       </div>
     );
   }
